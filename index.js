@@ -48,7 +48,10 @@ function createPokemonCard(pokemon){
     let pokemonSprite = document.createElement('img')
     let pokemonInfo = document.createElement('figcaption')
 
-    pokemonInfo.innerHTML = `<span>${pokemon.name}</span><span>#${pokemon.id}</span><span>${pokemon.type}</span>`
+    pokemonInfo.innerHTML = `<span>${pokemon.name}</span>
+                            <span>#${pokemon.id}</span>
+                            <span>${pokemon.type}</span>
+                            <span><button id="remove-button" onclick="removePokemon(this)">Remover Pokemon</button></span>`
 
     pokemonCard.classList.add("pokemon-card")
     pokemonSprite.classList.add("pokemon-image")
@@ -59,4 +62,13 @@ function createPokemonCard(pokemon){
     
     let container = document.querySelector('#container')
     container.append(pokemonCard)
+}
+
+function removePokemon(pokemon){
+    let pokemonToRemove = pokemon.closest('.pokemon-card')
+    pokemonToRemove.classList.add('remove')
+    console.log(pokemonToRemove)
+    setTimeout(()=>{
+        pokemonToRemove.remove()
+    }, 700)
 }

@@ -18,22 +18,28 @@ body{
     background-attachment: fixed;
 }
 
+#header{
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 99px;
+}
+
 #header-logo{
     width: 250px;
     display: flex;
     margin: 0 auto;
-    padding: .5em;
+    padding: .25em;
 
 }
 
 #container{
+    min-height: 64vh;
     width: 70%;
     margin: 0 auto;
     text-align: center;
     display: grid;
     gap: 1.5em;
     grid-template-columns: repeat(3, 1fr);
-    padding: 1em 0;
+    padding: 0 0 1em 0;
     justify-items: center;
 }
 
@@ -44,14 +50,41 @@ body{
     background-size: contain;
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 1.5em;
+    height: 430px;
+    animation: show 600ms 100ms cubic-bezier(0.38, 0.97, 0.56, 0.76) forwards;
+    opacity: 0;
+    transform: rotatey(-180deg);
+    transform-origin: left right;
+    
 }
 
+.remove{
+    animation: remove 600ms 100ms cubic-bezier(0.38, 0.97, 0.56, 0.76) forwards;
+    opacity: 1;
+    transform: rotatey(-180deg);
+    transform-origin: left right;
+}
+
+@keyframes show {
+    100% {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+@keyframes remove {
+    100% {
+      opacity: 0;
+      transform: none;
+    }
+  }
+
 .pokemon-card:hover{
-    box-shadow: 0px 0px 25px 10px rgba(0,0,0,0.7);
-    cursor: pointer;
+    box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.7);
     transition-property: all;
     transition-delay: 0s;
     transition-duration: .5s;
+
 }
 
 .pokemon-image{
@@ -70,7 +103,7 @@ body{
 }
 
 .pokemon-info>span{
-    width: 50%;
+    width: 75%;
     margin: 0 auto;
     padding: .25em 0 .25em 0;
     border-bottom: 1px solid white;
@@ -82,7 +115,7 @@ body{
 }
 #search{
     width: 70%;
-    height: 75px;
+    height: 8%;
     padding: 1em;
     margin: 0 auto;
     text-align: center;
@@ -111,6 +144,57 @@ body{
 #search-button:hover{
     box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.50);
     cursor: pointer;
+}
+
+#remove-button{
+    background-color: transparent;
+    color:#fff;
+    border: none;
+    font-size: 16px;
+    padding: .25em 0;
+}
+
+.pokemon-info>span:has(>#remove-button):hover{
+    cursor: pointer;
+    border-color: #6f0000;
+}
+
+#remove-button:hover{
+    cursor: pointer;
+    color: #9c0000;
+    text-shadow: 0px 0px 15px #6f0000;
+}
+
+#footer{
+    width: 100%;
+    height: 99px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+    bottom: 0px;
+}
+#footer>h2{
+    width: 35vw;
+    text-align: center;
+    text-decoration: underline;
+}
+
+#footer>ul{
+    display: flex;
+    width: 35vw;
+    justify-content: center;
+
+}
+#footer>ul>li{
+    margin: .5em;
+    
+}
+
+.icon{
+    width: 3.125em;
 }
 
 
