@@ -67,7 +67,6 @@ function createPokemonCard(pokemon){
 function removePokemon(pokemon){
     let pokemonToRemove = pokemon.closest('.pokemon-card')
     pokemonToRemove.classList.add('remove')
-    console.log(pokemonToRemove)
     setTimeout(()=>{
         pokemonToRemove.remove()
     }, 700)
